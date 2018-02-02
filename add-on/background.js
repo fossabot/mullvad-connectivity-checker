@@ -2,6 +2,7 @@
 	'use strict';
 
 	const alert = 'disconnectivityNotification';
+	const updateInterval = 60000;
 
 	function setBadgeBackgroundColor(color) {
 		chrome.browserAction.setBadgeBackgroundColor({
@@ -31,7 +32,7 @@
 	function setupPriceFetchInterval() {
 		window.setInterval(() => {
 			updateBadge();
-		}, 15000);
+		}, updateInterval);
 	}
 
 	function updateBadgeAsInfoNotAvailable() {
