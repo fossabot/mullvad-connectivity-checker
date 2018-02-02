@@ -29,7 +29,7 @@
 		});
 	}
 
-	function setupPriceFetchInterval() {
+	function setupConnectivityCheckInterval() {
 		window.setInterval(() => {
 			updateBadge();
 		}, updateInterval);
@@ -119,5 +119,5 @@
 
 	setupBadge();
 	updateBadge();
-	setupPriceFetchInterval();
+	setupConnectivityCheckInterval();
 })();
