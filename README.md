@@ -6,6 +6,9 @@ Browser extension that checks every minute that you are connected to a Mullvad V
 
 ![alt-text](https://i.imgur.com/n2Ij9b5.png)
 
+## Download
+* Firefox: https://addons.mozilla.org/en-US/firefox/addon/mullvad-connectivity-checker/
+
 ## Install Locally
 * Firefox - [temporary](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Temporary_Installation_in_Firefox)
 * Chrome - [permanent](https://superuser.com/questions/247651/how-does-one-install-an-extension-for-chrome-browser-from-the-local-file-system/247654#247654)
