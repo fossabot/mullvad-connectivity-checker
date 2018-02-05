@@ -35,15 +35,25 @@
 		}, updateInterval);
 	}
 
+	function throwNotification(badgeTitle) {
+		chrome.notifications.create(alert, {
+			type: 'basic',
+			message: 'Please check your VPN connection',
+			title: badgeTitle
+		});
+	}
+
 	function updateBadgeAsInfoNotAvailable() {
+		let badgeTitle = 'Connectivity could not be determined';
+
 		setBadgeBackgroundColor('red');
 		setBadgeText('N/A');
-		setBadgeTitle('Connectivity could not be determined');
+		setBadgeTitle(badgeTitle);
+		throwNotification(badgeTitle);
 	}
 
 	function updateBadgeWith(mullvadInfo) {
 		let badgeTitle = '';
-
 
 		if (mullvadInfo.isConnected) {
 			badgeTitle = mullvadInfo.ip + ' | ' + mullvadInfo.city + mullvadInfo.country + ' | ' + mullvadInfo.server + ' | ' + mullvadInfo.serverType;
@@ -54,11 +64,7 @@
 			setBadgeText('✘');
 			setBadgeBackgroundColor('red');
 
-			chrome.notifications.create(alert, {
-				type: 'basic',
-				message: 'Please check your VPN connection',
-				title: badgeTitle
-			});
+			throwNotification(badgeTitle);
 		}
 		setBadgeTitle(badgeTitle);
 	}
@@ -113,6 +119,7 @@
 	function setupBadge() {
 		setBadgeBackgroundColor('#F86922');
 		setBadgeText('...');
+		setBadgeTitle('Connectivity could not be determined');
 
 		chrome.browserAction.onClicked.addListener((tab) => {
 			createActiveTabTo('https://am.i.mullvad.net');
