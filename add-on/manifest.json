@@ -3,7 +3,7 @@
 	"name": "Mullvad Connectivity Checker",
 	"author": "Andreas Basurto",
 	"short_name": "mullvad-connectivity-checker",
-	"version": "1.2",
+	"version": "1.3",
 	"description": "Checks every minute that you are connected to a Mullvad VPN server or not.\n\nFree and open-source. Powered by Mullvad: https://am.i.mullvad.net",
 
 	"icons": {
