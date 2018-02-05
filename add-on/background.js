@@ -38,13 +38,15 @@
 	function updateBadgeAsInfoNotAvailable() {
 		setBadgeBackgroundColor('red');
 		setBadgeText('N/A');
+		setBadgeTitle('Connectivity could not be determined');
 	}
 
 	function updateBadgeWith(mullvadInfo) {
 		let badgeTitle = '';
 
-		if (mullvadInfo.isConnected && mullvadInfo.city !== null) {
-			badgeTitle = mullvadInfo.ip + ' | ' + mullvadInfo.city + ', ' + mullvadInfo.country + ' | ' + mullvadInfo.server + ' | ' + mullvadInfo.serverType;
+
+		if (mullvadInfo.isConnected) {
+			badgeTitle = mullvadInfo.ip + ' | ' + mullvadInfo.city + mullvadInfo.country + ' | ' + mullvadInfo.server + ' | ' + mullvadInfo.serverType;
 			setBadgeText('✔');
 			setBadgeBackgroundColor('green');
 		} else {
@@ -66,7 +68,7 @@
 		return {
 			ip: response['ip'],
 			country: response['country'],
-			city: response['city'],
+			city: response['city'] ? response['city'] + ', ' : '',
 			isConnected: response['mullvad_exit_ip'],
 			server: response['mullvad_exit_ip_hostname'],
 			serverType: response['mullvad_server_type'],
