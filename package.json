@@ -1,6 +1,6 @@
 {
 	"name": "mullvad-connectivity-checker",
-	"version": "1.4",
+	"version": "1.4.0",
 	"description": "Mullvad Connectivity Checker",
 	"author": "nitrohorse",
 	"scripts": {
