@@ -13,7 +13,13 @@ Browser extension that checks every minute that you are connected to a Mullvad V
 * Firefox - [temporary](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Temporary_Installation_in_Firefox)
 * Chrome - [permanent](https://superuser.com/questions/247651/how-does-one-install-an-extension-for-chrome-browser-from-the-local-file-system/247654#247654)
 
-## Test Locally
+## Develop Locally
 * Clone the repo
-* Install npm module(s): `yarn` or `npm install`
-* Use [web-ext](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext) for bundling (`yarn bundle` or `npm run bundle`) and development (`yarn web-ext` or `npm run web-ext`)
+* Install dependencies: 
+	* `yarn` or `npm install`
+* Run add-on in isolated Firefox instance using [web-ext](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext):
+	* `yarn web-ext` or `npm run web-ext`
+* Check dependencies for any known vulnerabilities:
+	* `yarn vuln-check` or `npm run vuln-check`
+* Bundle add-on into a zip file for distribution:
+	* `yarn bundle` or `npm run bundle`
