@@ -10,19 +10,19 @@
 	const amIMullvad = 'https://am.i.mullvad.net';
 	const amIMullvadJson = amIMullvad + '/json';
 
-	const setBadgeBackgroundColor = color => {
+	const setBadgeBackgroundColorAs = color => {
 		chrome.browserAction.setBadgeBackgroundColor({
 			color: color
 		});
 	};
 
-	const setBadgeText = text => {
+	const setBadgeTextAs = text => {
 		chrome.browserAction.setBadgeText({
 			text: text
 		});
 	};
 
-	const setBadgeTitle = title => {
+	const setBadgeTitleAs = title => {
 		chrome.browserAction.setTitle({
 			title: title
 		});
@@ -41,7 +41,7 @@
 		}, updateInterval);
 	};
 
-	const throwNotification = badgeTitle => {
+	const throwNotificationWithBadgeTitleAs = badgeTitle => {
 		chrome.notifications.create(alert, {
 			type: 'basic',
 			message: checkConnection,
@@ -49,28 +49,37 @@
 		});
 	};
 
-	const updateBadgeAsInfoNotAvailable = () => {
-		setBadgeBackgroundColor('red');
-		setBadgeText('N/A');
-		setBadgeTitle(connectivityNA);
-		throwNotification(connectivityNA);
+	const updateBadgeAsConnectionInfoNotAvailable = () => {
+		setBadgeBackgroundColorAs('red');
+		setBadgeTextAs('N/A');
+		setBadgeTitleAs(connectivityNA);
+		throwNotificationWithBadgeTitleAs(connectivityNA);
 	};
 
-	const updateBadgeWith = mullvadInfo => {
-		if (mullvadInfo.isConnected) {
-			setBadgeText('✔');
-			setBadgeBackgroundColor('green');
-			const badgeTitle = mullvadInfo.ip + ' | ' + mullvadInfo.city + mullvadInfo.country + ' | ' + mullvadInfo.server + ' | ' + mullvadInfo.serverType;
-			setBadgeTitle(badgeTitle);
+	const isConnectionThroughProxy = (connectionType) => {
+		return connectionType.includes('SOCKS');
+	};
+
+	const updateBadgeWith = connectionInfo => {
+		if (connectionInfo.isConnected) {
+			setBadgeTextAs('✔');
+
+			if (isConnectionThroughProxy(connectionInfo.type)) {
+				setBadgeTextAs('✔✔');
+			}
+			setBadgeBackgroundColorAs('green');
+			const badgeTitle = connectionInfo.ip + ' | ' + connectionInfo.city + connectionInfo.country + ' | ' + connectionInfo.server + ' | ' + connectionInfo.type;
+			setBadgeTitleAs(badgeTitle);
 		} else {
-			setBadgeText('✘');
-			setBadgeBackgroundColor('red');
-			throwNotification(connectionLost);
-			setBadgeTitle(connectionLost);
+			setBadgeTextAs('✘');
+			setBadgeBackgroundColorAs('red');
+			throwNotificationWithBadgeTitleAs(connectionLost);
+			setBadgeTitleAs(connectionLost);
 		}
 	};
 
-	const getInfoFrom = response => {
+	const getConnectionInfoFrom = response => {
+		console.log(response)
 		response = JSON.parse(response);
 		return {
 			ip: response['ip'],
@@ -78,11 +87,11 @@
 			city: response['city'] ? response['city'] + ', ' : '',
 			isConnected: response['mullvad_exit_ip'],
 			server: response['mullvad_exit_ip_hostname'],
-			serverType: response['mullvad_server_type'],
+			type: response['mullvad_server_type'],
 		};
 	};
 
-	const makeRequestForConnectivityInfo = () => {
+	const makeRequestForConnectionInfo = () => {
 		return new Promise((resolve, reject) => {
 			const xhr = new XMLHttpRequest();
 
@@ -108,18 +117,18 @@
 	};
 
 	const updateBadge = () => {
-		makeRequestForConnectivityInfo().then((response) => {
-			updateBadgeWith(getInfoFrom(response));
+		makeRequestForConnectionInfo().then((response) => {
+			updateBadgeWith(getConnectionInfoFrom(response));
 		})
 		.catch(err => {
-			updateBadgeAsInfoNotAvailable();
+			updateBadgeAsConnectionInfoNotAvailable();
 		});
 	};
 
 	const setupBadge = () => {
-		setBadgeBackgroundColor('#F86922');
-		setBadgeText('...');
-		setBadgeTitle(connectivityNA);
+		setBadgeBackgroundColorAs('#F86922');
+		setBadgeTextAs('...');
+		setBadgeTitleAs(connectivityNA);
 
 		chrome.browserAction.onClicked.addListener((tab) => {
 			createActiveTabTo(amIMullvad);

@@ -1,6 +1,6 @@
 # Mullvad Connectivity Checker
 
-Browser extension that checks every minute that you are connected to a Mullvad VPN server or not. Powered by [Mullvad](https://am.i.mullvad.net/api).
+Browser extension that checks every minute that you are connected to a Mullvad VPN server or not. Powered by [Mullvad](https://am.i.mullvad.net/api). Two checkmarks if you're connected through the [SOCKS5 proxy](https://mullvad.net/en/guides/socks5-proxy/), one checkmark if not.
 
 ![alt-text](https://i.imgur.com/XSOgj74.png)
 
