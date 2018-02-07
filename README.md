@@ -31,3 +31,5 @@ Browser extension that checks every minute that you are connected to a Mullvad V
 	* `yarn vuln-check` or `npm run vuln-check`
 * Bundle add-on into a zip file for distribution:
 	* `yarn bundle` or `npm run bundle`
+* Run linters, vulnerability check, and then bundle:
+	* `yarn dist` or `npm run dist`
