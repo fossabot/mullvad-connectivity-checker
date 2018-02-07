@@ -4,13 +4,13 @@
 	"description": "Mullvad Connectivity Checker",
 	"author": "nitrohorse",
 	"scripts": {
-		"bundle": "./node_modules/web-ext/bin/web-ext -s add-on -a dist build --overwrite-dest",
-		"serve": "./node_modules/web-ext/bin/web-ext run -s ./add-on",
-		"vuln-check": "./node_modules/nsp/bin/nsp check --output summary",
-		"lint-addon": "./node_modules/addons-linter/bin/addons-linter add-on",
-		"lint-js": "./node_modules/eslint/bin/eslint.js .",
+		"bundle": "web-ext -s add-on -a dist build --overwrite-dest",
+		"serve": "web-ext run -s ./add-on",
+		"vuln-check": "nsp check --output summary",
+		"lint-addon": "addons-linter add-on",
+		"lint-js": "eslint .",
 		"lint": "concurrently \"npm run lint-addon\" \"npm run lint-js\"",
-		"eslint-check": "./node_modules/eslint/bin/eslint.js --print-config .eslintrc.json | eslint-config-prettier-check"
+		"eslint-check": "eslint --print-config .eslintrc.json | eslint-config-prettier-check"
 	},
 	"repository": {
 		"type": "git",
