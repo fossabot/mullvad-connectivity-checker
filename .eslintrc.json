@@ -1,0 +1,16 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true,
+		"webextensions": true
+	},
+	"extends": [
+		"prettier"
+	],
+	"plugins": [
+		"prettier"
+	],
+	"rules": {
+		"prettier/prettier": "error"
+	}
+}
