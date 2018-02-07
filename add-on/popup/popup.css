@@ -1,0 +1,29 @@
+html, body {
+  width: 260px;
+  background-color: #294d73;
+  font-family: DIN,Arial,sans-serif;
+  font-weight: 700;
+  border: 0;
+}
+
+.button {
+  margin: 3% auto;
+  padding: 1.2rem 1.8rem 1.2rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1;
+  border-radius: .3rem;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fcfcfc;
+  border-radius: .3rem;
+  transition: background .13s ease-out;
+}
+
+.button.green {
+  background-color: #44ad4d;
+}
+
+.button.green:hover {
+  background-color: #3a9342;
+}
