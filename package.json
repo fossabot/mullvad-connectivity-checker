@@ -7,7 +7,9 @@
 		"bundle": "./node_modules/web-ext/bin/web-ext -s add-on -a dist build --overwrite-dest",
 		"serve": "./node_modules/web-ext/bin/web-ext run -s ./add-on",
 		"vuln-check": "./node_modules/nsp/bin/nsp check --output summary",
-		"lint": "./node_modules/eslint/bin/eslint.js .",
+		"lint-addon": "./node_modules/addons-linter/bin/addons-linter add-on",
+		"lint-js": "./node_modules/eslint/bin/eslint.js .",
+		"lint": "npm run lint-addon && npm run lint-js",
 		"eslint-check": "./node_modules/eslint/bin/eslint.js --print-config .eslintrc.json | eslint-config-prettier-check"
 	},
 	"repository": {
@@ -22,6 +24,7 @@
 		"webextensions"
 	],
 	"devDependencies": {
+		"addons-linter": "^0.36.1",
 		"eslint": "^4.17.0",
 		"eslint-config-prettier": "^2.9.0",
 		"eslint-plugin-prettier": "^2.6.0",
