@@ -15,15 +15,24 @@ html, body {
   border-radius: .3rem;
   text-decoration: none;
   cursor: pointer;
-  color: #fcfcfc;
   border-radius: .3rem;
   transition: background .13s ease-out;
 }
 
 .button.green {
+  color: #fcfcfc;
   background-color: #44ad4d;
 }
 
 .button.green:hover {
   background-color: #3a9342;
+}
+
+.button.yellow {
+  color: #8e4e13;
+  background: #ffd524;
+}
+
+.button.yellow:hover {
+  background: #e6ba00;
 }

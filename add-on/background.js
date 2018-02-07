@@ -1,14 +1,13 @@
 (() => {
   'use strict'
 
-  const alert = 'disconnectivityNotification'
+  const alertId = 'disconnectivityNotification'
   const updateInterval = 60000 // ms
 
   const checkConnection = 'Please check your VPN connection'
   const connectivityNA = 'Connectivity could not be determined'
   const connectionLost = 'Connectivity to Mullvad server lost'
-  const amIMullvad = 'https://am.i.mullvad.net'
-  const amIMullvadJson = amIMullvad + '/json'
+  const amIMullvadJson = 'https://am.i.mullvad.net/json'
 
   const setBadgeBackgroundColorAs = color => {
     window.chrome.browserAction.setBadgeBackgroundColor({
@@ -28,13 +27,6 @@
     })
   }
 
-  const createActiveTabTo = url => {
-    window.chrome.tabs.create({
-      active: true,
-      url: url
-    })
-  }
-
   const setupConnectivityCheckInterval = () => {
     window.setInterval(() => {
       updateBadge()
@@ -42,7 +34,7 @@
   }
 
   const throwNotificationWithBadgeTitleAs = badgeTitle => {
-    window.chrome.notifications.create(alert, {
+    window.chrome.notifications.create(alertId, {
       type: 'basic',
       message: checkConnection,
       title: badgeTitle
@@ -122,10 +114,6 @@
     setBadgeBackgroundColorAs('#F86922')
     setBadgeTextAs('...')
     setBadgeTitleAs(connectivityNA)
-
-    window.chrome.browserAction.onClicked.addListener(() => {
-      createActiveTabTo(amIMullvad)
-    })
   }
 
   setupBadge()
