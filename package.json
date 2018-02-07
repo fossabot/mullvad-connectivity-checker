@@ -9,7 +9,7 @@
 		"vuln-check": "./node_modules/nsp/bin/nsp check --output summary",
 		"lint-addon": "./node_modules/addons-linter/bin/addons-linter add-on",
 		"lint-js": "./node_modules/eslint/bin/eslint.js .",
-		"lint": "npm run lint-addon && npm run lint-js",
+		"lint": "concurrently \"npm run lint-addon\" \"npm run lint-js\"",
 		"eslint-check": "./node_modules/eslint/bin/eslint.js --print-config .eslintrc.json | eslint-config-prettier-check"
 	},
 	"repository": {
@@ -25,6 +25,7 @@
 	],
 	"devDependencies": {
 		"addons-linter": "^0.36.1",
+		"concurrently": "^3.5.1",
 		"eslint": "^4.17.0",
 		"eslint-config-prettier": "^2.9.0",
 		"eslint-plugin-prettier": "^2.6.0",
