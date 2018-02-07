@@ -7,10 +7,12 @@
 		"bundle": "web-ext -s add-on -a dist build --overwrite-dest",
 		"serve": "web-ext run -s ./add-on",
 		"vuln-check": "nsp check --output summary",
+		"update-check": "ncu",
+		"dep-check": "npm-run-all --parallel vuln-check update-check",
 		"lint-addon": "addons-linter add-on",
 		"lint-js": "eslint .",
 		"lint": "npm-run-all --parallel lint-addon lint-js",
-		"pre-dist-check": "npm-run-all --parallel lint vuln-check",
+		"pre-dist-check": "npm-run-all --parallel lint dep-check",
 		"dist": "npm-run-all pre-dist-check bundle",
 		"eslint-check": "eslint --print-config .eslintrc.json | eslint-config-prettier-check"
 	},

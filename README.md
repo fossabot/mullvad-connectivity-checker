@@ -15,21 +15,15 @@ Browser extension that checks every minute that you are connected to a Mullvad V
 
 ## Develop Locally
 * Clone the repo
+* Install tools:
+	* [Node.js](https://nodejs.org/en/)
+	* [yarn](https://yarnpkg.com/en/) (optional)
+	* [npm-check-updates](https://github.com/tjunnone/npm-check-updates)
+		* `yarn global add npm-check-updates` or `npm install --global npm-check-updates`
 * Install dependencies: 
 	* `yarn` or `npm install`
 * Run add-on in isolated Firefox instance using [web-ext](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext):
 	* `yarn web-ext` or `npm run web-ext`
-* Lint JavaScript with Prettier through ESLint:
-	* `yarn lint-js` or `npm run lint-js`
-* Lint add-on:
-	* `yarn lint-addon` or `npm run lint-addon`
-* Lint both JavaScript & add-on:
-	* `yarn lint` or `npm run lint`
-* Check whether the ESLint configuration contains rules that are unnecessary or conflict with Prettier:
-	* `yarn eslint-check` or `npm run eslint-check`
-* Check dependencies for any known vulnerabilities:
-	* `yarn vuln-check` or `npm run vuln-check`
-* Bundle add-on into a zip file for distribution:
-	* `yarn bundle` or `npm run bundle`
 * Run linters, vulnerability check, and then bundle:
 	* `yarn dist` or `npm run dist`
+* More script commands can be found in the [package.json](https://github.com/nitrohorse/mullvad-connectivity-checker/blob/master/package.json)...
