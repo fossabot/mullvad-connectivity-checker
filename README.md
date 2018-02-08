@@ -20,6 +20,10 @@ Browser extension that checks every minute that you are connected to a Mullvad V
 	* [yarn](https://yarnpkg.com/en/) (optional)
 	* [npm-check-updates](https://github.com/tjunnone/npm-check-updates)
 		* `yarn global add npm-check-updates` or `npm install --global npm-check-updates`
+	* [depcheck](https://www.npmjs.com/package/depcheck)
+		* `yarn global add depcheck` or `npm install --global depcheck`
+	* [snyk](https://snyk.io)
+		* `yarn global add snyk` or `npm install --global snyk`
 * Install dependencies: 
 	* `yarn` or `npm install`
 * Run add-on in isolated Firefox instance using [web-ext](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext):

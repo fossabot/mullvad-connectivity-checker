@@ -4,6 +4,7 @@ Thumbs.db
 web-ext-artifacts/*
 *.zip
 build
+notes.*
 
 ### Node ###
 # Logs
