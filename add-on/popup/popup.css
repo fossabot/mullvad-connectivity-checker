@@ -1,9 +1,16 @@
 html, body {
-  width: 260px;
   background-color: #294d73;
   font-family: DIN,Arial,sans-serif;
   font-weight: 700;
   border: 0;
+}
+
+ul {
+  padding: 0px 10px 0px 10px;
+}
+
+li {
+  list-style: none;
 }
 
 .button {
@@ -35,4 +42,11 @@ html, body {
 
 .button.yellow:hover {
   background: #e6ba00;
+}
+
+#toggle-text {
+  color: #fcfcfc;
+  padding: 9px;
+  border-radius: 20px;
+  background-color: #7b2120;
 }

@@ -1,16 +1,28 @@
 <!DOCTYPE html>
-
 <html>
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="popup.css" />
+    <link rel="stylesheet" href="toggle.css" />
   </head>
-
   <body>
-    <div id="popup-content">
-      <div id="button-new-tab" class="button green">Open New Private Window</div>
-      <div id="button-check-connection" class="button yellow">Check Connection</div>
-    </div>
+    <ul>
+      <li>
+        <label class="toggle">
+          <input type="checkbox" name="protectionsToggle">
+          <span class="slider round"></span>
+        </label>
+      </li>
+      <li>
+        <div id="toggle-text" class="button">Protections Off</div>
+      </li>
+      <li>
+        <div id="button-new-tab" class="button green">Open New Private Window</div>
+      </li>
+      <li>
+        <div id="button-check-connection" class="button yellow">Check Connection</div>
+      </li>
+    </ul>
     <script src="popup.js"></script>
   </body>
 </html>
