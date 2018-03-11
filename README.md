@@ -2,6 +2,7 @@
 
 [![devDependency Status](https://david-dm.org/nitrohorse/mullvad-connectivity-checker/dev-status.svg)](https://david-dm.org/nitrohorse/mullvad-connectivity-checker?type=dev)
 [![Known Vulnerabilities](https://snyk.io/test/github/nitrohorse/mullvad-connectivity-checker/badge.svg?targetFile=package.json)](https://snyk.io/test/github/nitrohorse/mullvad-connectivity-checker?targetFile=package.json)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnitrohorse%2Fmullvad-connectivity-checker.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnitrohorse%2Fmullvad-connectivity-checker?ref=badge_shield)
 
 Browser extension that checks every minute that you are connected to a Mullvad VPN server or not. Powered by [Mullvad](https://am.i.mullvad.net/api). Two checkmarks if you're connected through the [SOCKS5 proxy](https://mullvad.net/en/guides/socks5-proxy/), one checkmark if not.
 
@@ -28,3 +29,7 @@ Browser extension that checks every minute that you are connected to a Mullvad V
 * Package for distribution:
 	* `yarn bundle`
 * More script commands can be found in the [package.json](https://github.com/nitrohorse/mullvad-connectivity-checker/blob/master/package.json)...
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnitrohorse%2Fmullvad-connectivity-checker.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnitrohorse%2Fmullvad-connectivity-checker?ref=badge_large)
