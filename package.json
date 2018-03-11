@@ -6,19 +6,10 @@
 	"scripts": {
 		"bundle": "web-ext -s add-on -a dist build --overwrite-dest",
 		"start": "web-ext run -s ./add-on",
-		"snyk": "snyk test",
-		"nsp": "nsp check --output summary",
-		"vuln-check": "npm-run-all --parallel nsp snyk",
-		"ncu": "ncu",
-		"depcheck": "depcheck || true",
-		"update-check": "npm-run-all --parallel ncu depcheck",
-		"dep-check": "npm-run-all --parallel vuln-check update-check",
 		"lint-addon": "addons-linter add-on",
 		"lint-js": "standard",
 		"lint-js-fix": "standard --fix",
-		"lint": "npm-run-all --parallel lint-addon lint-js",
-		"pre-dist-check": "npm-run-all --parallel lint dep-check",
-		"dist": "npm-run-all pre-dist-check bundle"
+		"lint": "npm-run-all --parallel lint-addon lint-js"
 	},
 	"repository": {
 		"type": "git",
@@ -34,7 +25,6 @@
 	"devDependencies": {
 		"addons-linter": "^0.36.1",
 		"npm-run-all": "^4.1.2",
-		"nsp": "^3.1.0",
 		"standard": "^10.0.3",
 		"web-ext": "^2.4.0"
 	}
